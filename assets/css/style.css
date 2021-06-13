@@ -13,6 +13,10 @@ body {
     justify-content: flex-start;
 }
 
+p {
+    margin-bottom: 20px;
+}
+
 /* Formatting for the Header Bar of the Webpage */
 header {
     display: flex;
@@ -53,8 +57,39 @@ header div section div{
 
 /* Formatting for teh Main Content of the Webpage */
 
-#questionnaire {
+main {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome, #addScore, #highScores{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 50px;
+}
+
+#welcome .btn, #addScore .btn, #highScores .btn {
+    border: none;
+    background-color: #2F6DAE;
+    border-radius: 10px;
+    color: #ffffff;
+    margin: 20px;
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+}
+
+#welcome .btn:hover, #welcome .btn:focus,
+#addScore .btn:hover, #addScore .btn:focus, 
+#highScores .btn:hover, #highScores .btn:focus {
+    box-shadow: 0 0 11px rgba(0, 0, 0, 0.4); 
+}
+
+#questionnaire {
     flex-direction: row;
     flex-wrap: wrap;
     margin: 20px;
@@ -62,6 +97,7 @@ header div section div{
     background-color: #c4c4c4;
     border-radius: 20px;
     gap: 20px;
+    width: calc(100% - 40px);
 }
 
 #questionnaire > div {
@@ -115,6 +151,25 @@ header div section div{
     background-color: rgba(0,0,0,0.15);
     align-items: center;
     justify-content: center;
+}
+
+/* Formatting for the Add Score page */
+input {
+    padding: 10px;
+    max-width: 150px;
+}
+
+/* Formatting for the Highscores page */
+#highScores li {
+    height: 45px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    background-color: #ECA82C;
+    color: white;
+    line-height: 1.5;
+    border-radius: 9999em;
 }
 
 /* Formatting when the window size changes*/

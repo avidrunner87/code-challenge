@@ -57,7 +57,7 @@ header div section div{
 
 /* Formatting for teh Main Content of the Webpage */
 
-main {
+#content, #questionnaire {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -84,12 +84,14 @@ main {
 }
 
 #welcome .btn:hover, #welcome .btn:focus,
+#questionnaire > button:hover, #questionnaire > button:focus,
 #addScore .btn:hover, #addScore .btn:focus, 
 #highScores .btn:hover, #highScores .btn:focus {
     box-shadow: 0 0 11px rgba(0, 0, 0, 0.4); 
 }
 
 #questionnaire {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 20px;
@@ -100,7 +102,9 @@ main {
     width: calc(100% - 40px);
 }
 
-#questionnaire > div {
+#questionnaire > div, #questionnaire > button {
+    display: flex;
+    border: none;
     padding: 20px;
     height: 200px;
     width: calc(25% - 15px);
@@ -110,23 +114,28 @@ main {
     gap: 20px;
 }
 
+#questionnaire > button {
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
 #questionnaire div:nth-child(1) {
     width: 100%;
 }
 
-#questionnaire div:nth-child(2) {
+#questionnaire button:nth-child(2) {
     background-color: #2F6DAE;
 }
 
-#questionnaire div:nth-child(3) {
+#questionnaire button:nth-child(3) {
     background-color: #2C9CA6;
 }
 
-#questionnaire div:nth-child(4) {
+#questionnaire button:nth-child(4) {
     background-color: #ECA82C;
 }
 
-#questionnaire div:nth-child(5) {
+#questionnaire button:nth-child(5) {
     background-color: #D4546A;
 }
 
@@ -153,6 +162,10 @@ main {
     justify-content: center;
 }
 
+.answer {
+    font-size: 1.25rem;
+}
+
 /* Formatting for the Add Score page */
 input {
     padding: 10px;
@@ -174,7 +187,7 @@ input {
 
 /* Formatting when the window size changes*/
 @media only screen and (max-width: 750px) {
-    #questionnaire > div {
+    #questionnaire > button {
         width: calc(50% - 15px);
     }
 }

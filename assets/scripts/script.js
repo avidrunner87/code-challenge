@@ -1,34 +1,31 @@
 // ------------- Assignment Code -------------
-//Array of questions
+// Array of questions
 const quizQuestions = {
     "item": {
         "question": "What is your name?",
-        "answers": {
-            "optionOne": {
+        "answers": [
+            {
                 "value": "Andrew",
                 "correct": true
             },
-            "optionTwo": {
+            {
                 "value": "Jane",
                 "correct": false
             },
-            "optionThree": {
+            {
                 "value": "Sam",
                 "correct": true
             },
-            "optionFour": {
+            {
                 "value": "Terry",
                 "correct": true
             }
-        }
-    },
+        ]
+    }
 };
 
 // Element selectors
 const mainContent = document.getElementById("content");
-const questionnaireDiv = document.getElementById("questionnaire");
-const startQuizBtn = document.getElementById("startQuiz");
-const quizNumQuestDis = document.getElementById("quizNumQuestions");
 
 // ---------------- Functions ----------------
 function init() {
@@ -36,6 +33,7 @@ function init() {
     welcomeScreen();
 }
 
+// Build welcome page
 function welcomeScreen() {
     // Clear the main content DIV
     mainContent.innerHTML = "";
@@ -78,20 +76,75 @@ function welcomeScreen() {
     userActions.appendChild(showScoresEl);
 
 
-    //REMOVE BEFORE SUBMITTING, TEMP FOR TESTING
+    // REMOVE BEFORE SUBMITTING, TEMP FOR TESTING
     let addScoresEl = document.createElement("button");
     addScoresEl.setAttribute("id", "addScore");
     addScoresEl.setAttribute("class", "btn");
     addScoresEl.textContent = "Add Score";
     userActions.appendChild(addScoresEl);
-    //------------------------------------------
+    // ------------------------------------------
 
     welcomeDIV.appendChild(userActions);
 
     // Append to web page
     mainContent.appendChild(welcomeDIV);
 }
+// Build quiz page.
+function startQuiz() {
+    // Clear the main content DIV
+        mainContent.innerHTML = "";
 
+    // Create game board for quiz
+    let quizDIV = document.createElement("div");
+    quizDIV.setAttribute("id", "questionnaire");
+
+    // Create question DIV on game board
+    let questionEl = document.createElement("div");
+    questionEl.setAttribute("id", "question");
+    quizDIV.appendChild(questionEl);
+
+    // Create answer options on game board
+    for (let i = 0; i < 4; i++) {
+        let optionEl = document.createElement("button");
+        let optionHotKeyCount = 0
+        optionHotKeyCount = i+1
+        optionEl.setAttribute("id", "option" + optionHotKeyCount);
+
+        let hotkeyEl = document.createElement("div");
+        hotkeyEl.setAttribute("class", "hotkey");
+        hotkeyEl.textContent = i+1;
+        optionEl.appendChild(hotkeyEl);
+
+        let answerEl = document.createElement("span");
+        answerEl.setAttribute("class", "answer");
+        optionEl.appendChild(answerEl);
+
+        quizDIV.appendChild(optionEl);
+    }
+
+    // Append to web page
+    mainContent.appendChild(quizDIV);
+
+    document.getElementById("questionnaire").scrollIntoView();
+    runQuiz()
+}
+
+// Run the quiz
+function runQuiz() {
+    const questionDIV = document.getElementById("question");
+    const optionOneDIV = document.getElementById("option1");
+    const optionTwoDIV = document.getElementById("option2");
+    const optionThreeDIV = document.getElementById("option3");
+    const optionFourDIV = document.getElementById("option4");
+
+    questionDIV.textContent = quizQuestions.item.question;
+    optionOneDIV.children[1].append(quizQuestions.item.answers[0].value);
+    optionTwoDIV.children[1].append(quizQuestions.item.answers[1].value);
+    optionThreeDIV.children[1].append(quizQuestions.item.answers[2].value);
+    optionFourDIV.children[1].append(quizQuestions.item.answers[3].value);
+}
+
+// Build add score page.
 function addScore() {
     // Clear the main content DIV
         mainContent.innerHTML = "";
@@ -145,6 +198,7 @@ function addScore() {
     mainContent.appendChild(addScoreDIV);
 }
 
+// Store score in local storage
 function storeScore() {
     let highScores = JSON.parse(localStorage.getItem("codeKnowledgeQuizHighScores"));
     if (highScores === null) {
@@ -164,6 +218,7 @@ function storeScore() {
     viewScores();    
 }
 
+// Build high scores page.
 function viewScores() {
     // Clear the main content DIV
         mainContent.innerHTML = "";
@@ -207,10 +262,11 @@ function viewScores() {
     // Append to web page
     mainContent.appendChild(scoresDIV);
 
-    // Get highscores
+    // Get high scores from local storage
     renderHighScores();
 }
 
+// Get high scores from local storage and load on page.
 function renderHighScores() {
     
     let highScoresList = document.getElementById("highScoresList");
@@ -248,7 +304,13 @@ mainContent.addEventListener("click", function(event) {
                 welcomeScreen();
                 break;
             case "startQuiz":
-
+                startQuiz();
+                break;
+            case "option1":
+            case "option2":
+            case "option3":
+            case "option4":
+                console.log(event.target.id);
                 break;
             case "addScore":
                 addScore();
@@ -266,3 +328,8 @@ mainContent.addEventListener("click", function(event) {
         }
     }
 })
+
+// Add event listener to quiz hotkeys
+// mainContent.addEventListener("keydown", function(event) {
+//     console.log(event.code);
+// })

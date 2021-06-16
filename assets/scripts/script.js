@@ -45,22 +45,169 @@ const quizQuestions = {
             ]
         },
         {
-            "question": "Where is the correct place to insert a JavaScript",
+            "question": "Where is the correct What is the correct syntax for referring to an external script called \"xyz.js\"",
             "answers": [
                 {
-                    "value": "The <main> section",
+                    "value": "<script href=\"xyz.js\">",
                     "correct": false
                 },
                 {
-                    "value": "The <body> section",
+                    "value": "<script src=\"xyz.js\">",
                     "correct": true
                 },
                 {
-                    "value": "The <head> section",
+                    "value": "<script alt=\"xyz.js\">",
                     "correct": false
                 },
                 {
-                    "value": "The <footer> section",
+                    "value": "<script name=\"xyz.js\">",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "How do you write \"Hello World\" in an alert box?",
+            "answers": [
+                {
+                    "value": "alert(\"Hello World\")",
+                    "correct": true
+                },
+                {
+                    "value": "alertBox(\"Hello World\")",
+                    "correct": false
+                },
+                {
+                    "value": "msgBox(\"Hello World\")",
+                    "correct": false
+                },
+                {
+                    "value": "msg(\"Hello World\")",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "How do you create a function in JavaScript",
+            "answers": [
+                {
+                    "value": "function = myFunction()",
+                    "correct": false
+                },
+                {
+                    "value": "function:myFunction()",
+                    "correct": false
+                },
+                {
+                    "value": "function myFunction()",
+                    "correct": true
+                },
+                {
+                    "value": "myFunction()",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "How do you call a function named \"myFunction\"?",
+            "answers": [
+                {
+                    "value": "call function myFunction()",
+                    "correct": false
+                },
+                {
+                    "value": "myFunction()",
+                    "correct": true
+                },
+                {
+                    "value": "js myFunction()",
+                    "correct": false
+                },
+                {
+                    "value": "call myFunction()",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "How to write an IF statement in JavaScript?",
+            "answers": [
+                {
+                    "value": "if i= 5",
+                    "correct": false
+                },
+                {
+                    "value": "if i=5 then",
+                    "correct": false
+                },
+                {
+                    "value": "if i==5 then",
+                    "correct": false
+                },
+                {
+                    "value": "if(i===5)",
+                    "correct": true
+                }
+            ]
+        },
+        {
+            "question": "How does a FOR loop start?",
+            "answers": [
+                {
+                    "value": "for(i = 0; i<= 5; i++)",
+                    "correct": true
+                },
+                {
+                    "value": "for(i = 0; i <= 5)",
+                    "correct": false
+                },
+                {
+                    "value": "for i = 1 to 5",
+                    "correct": false
+                },
+                {
+                    "value": "for (i<=5; i++)",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "question": "What is the correct way to write a JavaScript array?",
+            "answers": [
+                {
+                    "value": "var colors = \"red\", \"green\", \"blue\"",
+                    "correct": false
+                },
+                {
+                    "value": "var colors = 1 = (\"red\"), 2 = (\"green\"), 3 = (\"blue\")",
+                    "correct": false
+                },
+                {
+                    "value": "var colors = (1:\"red\", 2:\"green\", 3:\"blue\")",
+                    "correct": false
+                },
+                {
+                    "value": "var colors = [\"red\", \"green\", \"blue\"]",
+                    "correct": true
+                }
+            ]
+        },
+        {
+            "question": "How do you round the number 7.25 to the nearest integer?",
+            "answers": [
+                {
+                    "value": "rnd(7.25)",
+                    "correct": false
+                },
+                {
+                    "value": "Math.round(7.25)",
+                    "correct": true
+                },
+                {
+                    "value": "Math.rnd(7.25)",
+                    "correct": false
+                },
+                {
+                    "value": "round(7.25)",
                     "correct": false
                 }
             ]
@@ -71,7 +218,7 @@ const quizQuestions = {
 // Element selectors
 const jumbotron = document.getElementById("jumbotron");
 const mainContent = document.getElementById("content");
-const secondsStart = 90;
+const secondsStart = 20;
 let secondsLeft = secondsStart;
 let questionItem = 0;
 let timer;
@@ -309,7 +456,7 @@ function iterateQuestion() {
         addScore();
     }
     console.log(document.activeElement);
-    document.activeElement.blur();
+
 }
 
 // Build add score page.
@@ -483,7 +630,7 @@ mainContent.addEventListener("click", function(event) {
             case "option2":
             case "option3":
             case "option4":
-                checkAnswer(event.target.id.slice(-1));
+                checkAnswer(id.slice(-1));
                 break;
             case "addScore":
                 addScore();

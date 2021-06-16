@@ -29,30 +29,21 @@ header {
     gap: 20px;
 }
 
-header div section {
-    display: inline-block;
+header div {
+    display: inline-flex;
 }
 
-header div section div{
+header div div{
     display: inline-flex;
     background-color: rgba(0,0,0,0.5);
-    width: 35px;
+    color: #ffffff;
+    min-width: 35px;
+    margin-left: 20px;
+    padding: 5px 10px 5px 10px;
     height: 35px;
     border-radius: 20px;
     align-items: center;
     justify-content: center;
-}
-
-.widthTwoX {
-    width: 70px;
-}
-
-.widthThreeX {
-    width: 105px;
-}
-
-.widthFourX {
-    width: 140px;
 }
 
 /* Formatting for teh Main Content of the Webpage */
@@ -106,7 +97,7 @@ header div section div{
     display: flex;
     border: none;
     padding: 20px;
-    height: 200px;
+    min-height: 200px;
     width: calc(25% - 15px);
     border-radius: 20px;
     background-color: rgba(0,0,0,0.5);
@@ -152,8 +143,9 @@ header div section div{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    flex-basis: none;
     position: relative;
-    max-width: 35px;
+    width: 35px;
     height: 35px;
     border-radius: 20px;
     margin-bottom: 10px;
@@ -164,6 +156,7 @@ header div section div{
 
 .answer {
     font-size: 1.25rem;
+    word-break: break-all;
 }
 
 /* Formatting for the Add Score page */

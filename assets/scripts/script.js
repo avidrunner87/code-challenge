@@ -45,7 +45,7 @@ const quizQuestions = {
             ]
         },
         {
-            "question": "Where is the correct What is the correct syntax for referring to an external script called \"xyz.js\"",
+            "question": "What is the correct syntax for referring to an external script called \"xyz.js\"",
             "answers": [
                 {
                     "value": "<script href=\"xyz.js\">",
@@ -391,7 +391,7 @@ function updateQuizTimer() {
     timer = setInterval( function() {
         secondsLeft--;
 
-        if(secondsLeft === 0) {
+        if(secondsLeft <= 0) {
             //Stop execution of action at set interval
             clearInterval(timer);
 

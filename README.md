@@ -30,7 +30,7 @@ THEN the game is over
 THEN I can save my initials and my score
 
 ## Licenses
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/avidrunner87/small-talk/blob/main/LICENSE.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/avidrunner87/code-challenge/blob/main/LICENSE.md)
 
 ## Technologies
 ![HTML](https://img.shields.io/static/v1?label=html&message=2.3%&color=red)

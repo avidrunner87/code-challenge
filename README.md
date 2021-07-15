@@ -43,7 +43,7 @@ The following picture shows the website appearance and capabilities:
 <img src="./assets/images/screenshots/mockup.gif" width="600"><br>
 <img src="./assets/images/screenshots/screenshot01.png" width="300">
 <img src="./assets/images/screenshots/screenshot02.png" width="300"><br>
-<img src="./assets/images/screenshots/screenshot02.png" width="300">
+<img src="./assets/images/screenshots/screenshot03.png" width="300">
 
 ## Installation
 To fork this code to further improve the website, please follow these directions:
